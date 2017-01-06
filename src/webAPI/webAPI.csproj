@@ -25,7 +25,7 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.0" />
   </ItemGroup>
 
-  <Target Name="BeforeBuild">
+  <Target Name="BeforePublish">
 	  <Exec Command="npm install" WorkingDirectory="AngularFrontEnd"/>
       <Exec Command="ng build -prod --output-path=..\wwwroot" WorkingDirectory="AngularFrontEnd"/>
   </Target>
