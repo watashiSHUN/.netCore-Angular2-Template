@@ -1,16 +1,19 @@
-<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Remove="AngularFrontEnd\**" />
+    <Content Remove="AngularFrontEnd\**" />
+    <EmbeddedResource Remove="AngularFrontEnd\**" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.0" />
     <PackageReference Include="Microsoft.NETCore.App" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.0.1" />
@@ -24,10 +27,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.0" />
   </ItemGroup>
-
   <Target Name="myTarget" BeforeTargets="BeforePublish">
-	  <Exec Command="npm install" WorkingDirectory="AngularFrontEnd"/>
-      <Exec Command="node node_modules\angular-cli\bin\ng build -prod --output-path=..\wwwroot" WorkingDirectory="AngularFrontEnd"/>
+    <Exec Command="npm install" WorkingDirectory="AngularFrontEnd" />
+    <Exec Command="node node_modules\angular-cli\bin\ng build -prod --output-path=..\wwwroot" WorkingDirectory="AngularFrontEnd" />
   </Target>
-
 </Project>

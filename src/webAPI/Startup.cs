@@ -37,6 +37,7 @@ namespace webAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseDefaultFiles();
             app.UseMvc();
         }
     }
