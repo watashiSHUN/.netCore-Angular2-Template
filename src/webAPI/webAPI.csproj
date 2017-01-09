@@ -29,6 +29,6 @@
   </ItemGroup>
   <Target Name="myTarget" BeforeTargets="BeforePublish">
     <Exec Command="npm install" WorkingDirectory="AngularFrontEnd" />
-    <Exec Command="node node_modules\angular-cli\bin\ng build -prod --output-path=..\wwwroot" WorkingDirectory="AngularFrontEnd" />
+    <Exec Command="node node_modules\angular-cli\bin\ng build -prod --output-path ..\wwwroot --base-href ." WorkingDirectory="AngularFrontEnd" />
   </Target>
 </Project>
