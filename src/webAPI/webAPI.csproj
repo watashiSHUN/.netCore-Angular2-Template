@@ -27,7 +27,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.0" />
   </ItemGroup>
-  <Target Name="myTarget" BeforeTargets="BeforePublish">
+  <Target Name="myTarget" BeforeTargets="BeforeBuild" >
     <Exec Command="npm install" WorkingDirectory="AngularFrontEnd" />
     <Exec Command="node node_modules\angular-cli\bin\ng build -prod --output-path ..\wwwroot --base-href ." WorkingDirectory="AngularFrontEnd" />
   </Target>
